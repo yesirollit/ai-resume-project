@@ -5,10 +5,10 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 
 const connectDB = require("./config/resumedb");
-const resumeTemplate23Routes = require("./routes/template23Routes");
-const enhanceRoutes = require("./routes/enhanceRoutes");
-const uploadRoutes = require("./routes/uploadRoutes");
-const editRouter = require("./routes/editableResume");
+// const resumeTemplate23Routes = require("./routes/template23Routes"); ❌ Commented out (file not found)
+//const enhanceRoutes = require("./routes/enhanceRoutes");
+//const uploadRoutes = require("./routes/uploadRoutes");
+//const editRouter = require("./routes/editableResume");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -25,10 +25,10 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 // ✅ Routes
-app.use("/api/template23", resumeTemplate23Routes);
-app.use("/api/enhance", enhanceRoutes);
-app.use("/api", uploadRoutes);
-app.use("/api/editresume", editRouter);
+// app.use("/api/template23", resumeTemplate23Routes); ❌ Temporarily disabled
+//app.use("/api/enhance", enhanceRoutes);
+//app.use("/api", uploadRoutes);
+//app.use("/api/editresume", editRouter);
 
 // ✅ Serve frontend
 app.get("*", (req, res) => {
